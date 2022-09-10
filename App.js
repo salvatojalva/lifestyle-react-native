@@ -42,7 +42,7 @@ const App = () => {
       console.log(agregaGasto)
     }
     else {
-      nuevoGasto.id = Date.now()
+      nuevoGasto.id = gastos.length + 1
       nuevoGasto.fecha=Date.now()
       setGastos([...gastos, nuevoGasto])
     }
@@ -58,6 +58,8 @@ const App = () => {
               <ControlPresupuesto
                 presupuesto={presupuesto}
                 gastos={gastos}
+                setBandera={setBandera}
+
               />
           ) :
           (<NuevoPresupuesto
@@ -70,7 +72,8 @@ const App = () => {
 
       {bandera &&( 
       <ListadoGastos
-      gastos={gastos}
+        gastos={gastos}
+        setGastos={setGastos}
       />
       )}
       </ScrollView>

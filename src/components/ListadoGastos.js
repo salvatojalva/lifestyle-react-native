@@ -12,7 +12,7 @@ import {
 } from 'react-native'
 import Gasto from './Gasto';
 
-const ListadoGastos = ({ gastos }) => {
+const ListadoGastos = ({ gastos, setGastos }) => {
     return (
         <View style={styles.contenedor}>
 
@@ -23,6 +23,8 @@ const ListadoGastos = ({ gastos }) => {
                         <Gasto
                             key={itemGasto.id}
                             itemGasto={itemGasto}
+                            setGastos={setGastos}
+                            gastos={gastos}
                         >
                         </Gasto>
 

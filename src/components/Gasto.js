@@ -27,8 +27,8 @@ const galeriaIconos={
     voleibol: require('../img/voleibol.png')
 }
 
-const Gasto = ({ itemGasto }) => {
-    const { nombreGasto, categoria, valorGasto, fecha } = itemGasto
+const Gasto = ({ itemGasto, setGastos, gastos }) => {
+    const { id, categoria, valorGasto, fecha } = itemGasto
     return (
         <View style={styles.contenedor}>
             <View style={styles.ficha}>
@@ -43,6 +43,18 @@ const Gasto = ({ itemGasto }) => {
                     </View>
                 </View>
                 <Text style={styles.valorGasto}>{valorGasto}{' hr'}</Text>
+                <Pressable
+                    onPress={() => {
+                        
+                        let newGastos = gastos.filter(data => data.id != itemGasto.id)
+                        setGastos(newGastos)
+                     }}
+                >
+                    <Image
+                        style={styles.imagen2}
+                        source={ require('../img/remove.png')}
+                    ></Image>
+                </Pressable>
             </View>
         </View>
     );
@@ -62,6 +74,12 @@ const styles = StyleSheet.create({
         height: 60,
         borderRadius: 30,
         backgroundColor: '#A0AEC0'
+    },
+    imagen2: {
+        width: 20,
+        height: 20,
+        
+        
     },
     alineaImagen: {
         flexDirection: 'row',

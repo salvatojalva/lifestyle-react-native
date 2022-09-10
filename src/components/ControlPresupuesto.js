@@ -3,12 +3,13 @@ import {
   View,
   Text,
   StyleSheet,
-  Image
+  Image,
+  Pressable
 } from 'react-native';
 import estilosGenerales from '../styles';
 import * as Progress from 'react-native-progress';
 
-const ControlPresupuesto = ({ presupuesto, gastos }) => {
+const ControlPresupuesto = ({ presupuesto, gastos, setBandera }) => {
   const [gastado, setGastado] = useState(0)
   const [disponible, setDisponible] = useState()
 
@@ -20,14 +21,19 @@ const ControlPresupuesto = ({ presupuesto, gastos }) => {
   return (
     <View style={styles.avance}>
 
-      <View style={styles.contenedorTexto}>
-        <Text style={styles.label}>Avance</Text>
-        <Text style={styles.textValor}>
+      <Pressable
+        onLongPress={ () => { setBandera(false) }}      
+      >
 
-          {gastado}{' de '}{presupuesto}{' horas'}
-        </Text>
-        <Progress.Bar style={styles.progress} progress={ gastado/100 } width={340} color="#fff"/>
-      </View>
+        <View style={styles.contenedorTexto}>
+          <Text style={styles.label}>Avance</Text>
+          <Text style={styles.textValor}>
+
+            {gastado}{' de '}{presupuesto}{' horas'}
+          </Text>
+          <Progress.Bar style={styles.progress} progress={ (gastado ) / 340 } width={340} color="#fff"/>
+        </View>
+      </Pressable>
     </View>
 
   );

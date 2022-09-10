@@ -74,7 +74,7 @@ const FormularioGasto = ({ setMostrarFormGasto, agregaGasto }) => {
                                 setMostrarFormGasto(false)
                             }}
                         >
-                            <Text style={styles.textoBoton2}>Agregar gasto</Text>
+                            <Text style={styles.textoBoton2}>Agregar</Text>
                         </Pressable>
              
             
